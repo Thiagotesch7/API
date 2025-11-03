@@ -7,7 +7,7 @@ A API tem como finalidade gerenciar dados de forma organizada, permitindo opera�
 
 ⚙️ Tecnologias Utilizadas
 
-Linguagem: JavaScript 
+Linguagem: Java 
 Interface: FlutterFlow
 
 👥 Autores
