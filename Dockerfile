@@ -12,10 +12,11 @@ ENV MAVEN_HOME=/opt/maven
 ENV PATH=$MAVEN_HOME/bin:$PATH
 COPY pom.xml .
 RUN mvn dependency:go-offline -B || true
-COPY src ./src
+COPY api ./src
 RUN mvn clean package -DskipTests
 FROM eclipse-temurin:23-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
+
 CMD ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]
