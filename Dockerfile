@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 ENV MAVEN_HOME=/opt/maven
 ENV PATH=$MAVEN_HOME/bin:$PATH
-COPY pom.xml .
+COPY api/pom.xml .
 RUN mvn dependency:go-offline -B || true
 COPY api ./src
 RUN mvn clean package -DskipTests
@@ -20,3 +20,4 @@ COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
 CMD ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]
+
