@@ -11,7 +11,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -31,11 +31,13 @@ public class Usuario {
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
 
-    // ✅ Construtor padrão exigido pelo JPA
-    public Usuario() {}
+    public Usuario() {
+    }
+    
 
-    // ✅ Construtor com parâmetros
-    public Usuario(int id, String nome, String sobrenome, String email, String senha, String cpf, LocalDate dataNascimento) {
+    
+    public Usuario(int id, String nome, String sobrenome, String email, String senha, String cpf,
+            LocalDate dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -43,9 +45,13 @@ public class Usuario {
         this.senha = senha;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
+
     }
 
-    // ✅ Getters e Setters
+
+    
+    
+
     public int getId() {
         return id;
     }
@@ -101,4 +107,5 @@ public class Usuario {
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
 }
