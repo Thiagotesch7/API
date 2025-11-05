@@ -15,13 +15,14 @@ A API tem como finalidade **gerenciar dados de forma organizada**, permitindo op
 
 ---
 
-## 👥 Autores
+## 👥 Alunos
 
 Projeto desenvolvido por alunos do **SENAI**:
 
 - Caio Borsato Alonso  
 - Marlon Lara Cardoso Franco  
-- Miguel Teixeira de Macedo  
+- Miguel Teixeira de Macedo
+- Otavio Augusto Corrêa Ferreira 
 - Pedro Wolfolgramm Vogel  
 - Thiago Coelho Tesch  
 
