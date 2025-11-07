@@ -2,6 +2,9 @@ package senai.api.projetoApi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import senai.api.projetoApi.models.Usuario;
 import senai.api.projetoApi.services.UsuarioService;
 
@@ -12,19 +15,18 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    /**
+     * Cadastra um novo usuário.
+     * Recebe os dados do usuário via JSON (request body)
+     * e a confirmação de senha como parâmetro separado.
+     */
     @PostMapping("/cadastro")
     public String cadastrar(
-            @RequestParam("nome") String nome,
-            @RequestParam("email") String email,
-            @RequestParam("cpf") String cpf,
-            @RequestParam("senha") String senha,
+            @RequestBody 
+            @Schema(description = "Dados do usuário para cadastro") Usuario usuario,
+            
+            @Parameter(description = "Confirmação da senha digitada pelo usuário", example = "123456")
             @RequestParam("confirmarSenha") String confirmarSenha) {
-        
-        Usuario usuario = new Usuario();
-        usuario.setNome(nome);
-        usuario.setEmail(email);
-        usuario.setCpf(cpf);
-        usuario.setSenha(senha);
 
         return usuarioService.cadastrar(usuario, confirmarSenha);
     }
