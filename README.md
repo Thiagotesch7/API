@@ -29,3 +29,5 @@ Projeto desenvolvido por alunos do **SENAI**:
 **Orientador(a):** Prof. Debora Souza  
 
 ---
+
+Swagger= https://api-hx1r.onrender.com/swagger-ui/index.html
