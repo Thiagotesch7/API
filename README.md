@@ -30,4 +30,4 @@ Projeto desenvolvido por alunos do **SENAI**:
 
 ---
 
-Swagger= https://api-hx1r.onrender.com/swagger-ui/index.html
+Swagger= https://api-hx1r.onrender.com/swagger-ui/index.html](https://api-hx1r.onrender.com/api/swagger-ui/index.html
