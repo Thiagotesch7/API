@@ -12,13 +12,29 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public boolean cadastrar(Usuario usuario) {
+    /**
+     * O método recebe o objeto usuário e a senha de confirmação.
+     * O retorno foi alterado para String para dar mensagens de erro específicas.
+     */
+    public String cadastrar(Usuario usuario, String confirmarSenha) {
+        
+        // 1. VALIDAÇÃO DE SENHA
+        if (usuario.getSenha() == null || confirmarSenha == null || 
+            !usuario.getSenha().equals(confirmarSenha)) {
+            
+            return "Erro: As senhas não conferem.";
+        }
+
+        // 2. VALIDAÇÃO DE DUPLICIDADE
         if (usuarioRepository.findByEmail(usuario.getEmail()) != null ||
             usuarioRepository.findByCpf(usuario.getCpf()) != null) {
-            return false;
+            
+            return "Erro: e-mail ou CPF já cadastrado.";
         }
+
+        // 3. SUCESSO
         usuarioRepository.save(usuario);
-        return true;
+        return "Usuário cadastrado com sucesso!";
     }
 
     public boolean login(String email, String senha) {
