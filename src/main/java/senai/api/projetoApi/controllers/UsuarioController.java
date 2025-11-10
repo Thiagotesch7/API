@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Schema;
 import senai.api.projetoApi.models.Usuario;
 import senai.api.projetoApi.services.UsuarioService;
 
@@ -22,18 +21,25 @@ public class UsuarioController {
      */
     @PostMapping("/cadastro")
     public String cadastrar(
-            @RequestBody 
-            @Schema(description = "Dados do usuário para cadastro") Usuario usuario,
-            
-            @Parameter(description = "Confirmação da senha digitada pelo usuário", example = "123456")
+            @RequestBody Usuario usuario,
             @RequestParam("confirmarSenha") String confirmarSenha) {
 
         return usuarioService.cadastrar(usuario, confirmarSenha);
     }
 
+    /**
+     * Realiza o login do usuário.
+     * Agora recebe e-mail e senha via parâmetros (RequestParam).
+     */
     @PostMapping("/login")
-    public String login(@RequestBody Usuario usuario) {
-        boolean autenticado = usuarioService.login(usuario.getEmail(), usuario.getSenha());
+    public String login(
+            @Parameter(description = "E-mail do usuário", example = "joao@email.com")
+            @RequestParam("email") String email,
+
+            @Parameter(description = "Senha do usuário", example = "123456")
+            @RequestParam("senha") String senha) {
+
+        boolean autenticado = usuarioService.login(email, senha);
         return autenticado ? "Login realizado com sucesso!" : "E-mail ou senha inválidos.";
     }
 }
