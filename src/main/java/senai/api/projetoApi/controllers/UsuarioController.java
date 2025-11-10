@@ -14,11 +14,6 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    /**
-     * Cadastra um novo usuário.
-     * Recebe os dados do usuário via JSON (request body)
-     * e a confirmação de senha como parâmetro separado.
-     */
     @PostMapping("/cadastro")
     public String cadastrar(
             @RequestBody Usuario usuario,
@@ -27,10 +22,6 @@ public class UsuarioController {
         return usuarioService.cadastrar(usuario, confirmarSenha);
     }
 
-    /**
-     * Realiza o login do usuário.
-     * Agora recebe e-mail e senha via parâmetros (RequestParam).
-     */
     @PostMapping("/login")
     public String login(
             @Parameter(description = "E-mail do usuário", example = "joao@email.com")
@@ -41,5 +32,14 @@ public class UsuarioController {
 
         boolean autenticado = usuarioService.login(email, senha);
         return autenticado ? "Login realizado com sucesso!" : "E-mail ou senha inválidos.";
+    }
+
+    @PutMapping("/{id}")
+    public String atualizarUsuario(
+            @PathVariable Long id,
+            @RequestBody Usuario usuarioAtualizado) {
+
+        boolean atualizado = usuarioService.atualizar(id, usuarioAtualizado);
+        return atualizado ? "Usuário atualizado com sucesso!" : "Falha ao atualizar usuário.";
     }
 }
