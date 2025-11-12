@@ -22,14 +22,19 @@ public class EnderecoController {
     private EnderecoRepository enderecoRepository;
 
     
-    @GetMapping
-    public List<Endereco> getAllEnderecos() {
-        return enderecoRepository.findAll();
+   @GetMapping("/enderecos/{cep}")
+    public ResponseEntity<Endereco> buscarPorCep(@PathVariable String cep) {
+    Endereco endereco = enderecoRepository.findByCep(cep);
+    if (endereco == null) {
+        return ResponseEntity.notFound().build();
     }
+    return ResponseEntity.ok(endereco);
+}
 
     
     @PostMapping
     public Endereco salvarEndereco(@RequestBody Endereco endereco) {
         return enderecoRepository.save(endereco);
     }
+
 }
