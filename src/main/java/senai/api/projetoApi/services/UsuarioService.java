@@ -34,9 +34,8 @@ public class UsuarioService {
         return usuario != null && usuario.getSenha().equals(senha);
     }
 
-    // ✅ Novo método de atualização
     public boolean atualizar(Long id, Usuario usuarioAtualizado) {
-        Optional<Usuario> usuarioExistente = usuarioRepository.findById(null);
+        Optional<Usuario> usuarioExistente = usuarioRepository.findById(id.intValue());
         if (usuarioExistente.isPresent()) {
             Usuario usuario = usuarioExistente.get();
 

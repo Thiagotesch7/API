@@ -1,18 +1,26 @@
 package senai.api.projetoApi.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.v3.oas.annotations.Parameter;
 import senai.api.projetoApi.models.Usuario;
+import senai.api.projetoApi.repositories.UsuarioRepository;
 import senai.api.projetoApi.services.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
 
+    private final UsuarioRepository usuarioRepository;
+
     @Autowired
     private UsuarioService usuarioService;
+
+    UsuarioController(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @PostMapping("/cadastro")
     public String cadastrar(
@@ -42,4 +50,11 @@ public class UsuarioController {
         boolean atualizado = usuarioService.atualizar(id, usuarioAtualizado);
         return atualizado ? "Usuário atualizado com sucesso!" : "Falha ao atualizar usuário.";
     }
+
+@GetMapping("/{id}")
+public Object buscarPorId(@PathVariable Long id) {
+    return usuarioRepository.findById(id.intValue())
+            .<Object>map(usuario -> usuario)
+            .orElse("Usuário não encontrado.");
+}
 }
