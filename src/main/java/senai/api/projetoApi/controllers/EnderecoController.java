@@ -1,16 +1,9 @@
 package senai.api.projetoApi.controllers;
 
-
-
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import senai.api.projetoApi.models.Endereco;
 import senai.api.projetoApi.repositories.EnderecoRepository;
 
@@ -21,20 +14,17 @@ public class EnderecoController {
     @Autowired
     private EnderecoRepository enderecoRepository;
 
-    
-   @GetMapping("/enderecos/{cep}")
+    @GetMapping("/{cep}")
     public ResponseEntity<Endereco> buscarPorCep(@PathVariable String cep) {
-    Endereco endereco = enderecoRepository.findByCep(cep);
-    if (endereco == null) {
-        return ResponseEntity.notFound().build();
+        Endereco endereco = enderecoRepository.findByCep(cep);
+        if (endereco == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(endereco);
     }
-    return ResponseEntity.ok(endereco);
-}
 
-    
     @PostMapping
     public Endereco salvarEndereco(@RequestBody Endereco endereco) {
         return enderecoRepository.save(endereco);
     }
-
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "usuario")
 public class Usuario {
@@ -21,6 +23,7 @@ public class Usuario {
 
     // Relacionamento 1:N com Endereco
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Endereco> enderecos;
 
     public Usuario() {}
@@ -37,7 +40,7 @@ public class Usuario {
         this.enderecos = enderecos;
     }
 
-    // Getters e Setters
+    
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
