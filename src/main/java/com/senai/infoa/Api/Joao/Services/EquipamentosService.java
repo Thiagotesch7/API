@@ -25,12 +25,7 @@ public class EquipamentosService {
 
     public void AtualizarEquipamento (Integer id, Equipamentos equipamento) {
         Equipamentos equipamentoAntigo = equipamentosRepository.findById(id).orElseThrow(()-> new RuntimeException("Não existe esse equipamento"));
-        Equipamentos equipamentoAtualizado = Equipamentos.builder()
-        .id(id)
-        .nomeEquipamento(equipamento.getNomeEquipamento() != null ? equipamento.getNomeEquipamento() : equipamentoAntigo.getNomeEquipamento())
-        .build();
-
-        equipamentosRepository.saveAndFlush(equipamentoAtualizado);
+        if (equipamento.getNomeEquipamento() != null) {equipamentoAntigo.setNomeEquipamento(equipamento.getNomeEquipamento());}
     }
 
     public void DeletarEquipamentoId (Integer id) {
