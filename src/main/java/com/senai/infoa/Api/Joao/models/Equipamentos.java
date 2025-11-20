@@ -8,18 +8,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Builder
+
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+
 @Table(name = "equipamentos")
 public class Equipamentos {
     @Id
@@ -33,7 +25,41 @@ public class Equipamentos {
     @OneToOne(mappedBy="equipamentos", cascade=CascadeType.ALL)
     private Reserva reserva;
 
+    public Equipamentos() {
+    }
 
+    public Equipamentos(Integer id, String nomeEquipamento, Reserva reserva) {
+        this.id = id;
+        this.nomeEquipamento = nomeEquipamento;
+        this.reserva = reserva;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNomeEquipamento() {
+        return nomeEquipamento;
+    }
+
+    public void setNomeEquipamento(String nomeEquipamento) {
+        this.nomeEquipamento = nomeEquipamento;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+
+    
     
 
 }
