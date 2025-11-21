@@ -40,12 +40,11 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String cpf, LocalDate dataNascimento, Integer id, String nomeUsuario, List<Reserva> reserva, String senha) {
+    public Usuario(String cpf, LocalDate dataNascimento, Integer id, String nomeUsuario,  String senha) {
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.id = id;
         this.nomeUsuario = nomeUsuario;
-        this.reserva = reserva;
         this.senha = senha;
     }
 
@@ -89,18 +88,12 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public List<Reserva> getReserva() {
-        return reserva;
-    }
-
-    public void setReserva(List<Reserva> reserva) {
-        this.reserva = reserva;
-    }
 
     
     
 
     
 }
+
 
 
