@@ -1,15 +1,12 @@
 package com.senai.infoa.Api.Joao.models;
 
 import java.time.LocalDate;
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+
 import jakarta.persistence.Table;
 
 
@@ -33,9 +30,6 @@ public class Usuario {
     @Column(name="senha")
     private String senha;
 
-    //@OneToMany(mappedBy="usuario")
-    //@JsonIgnore
-    //private List<Reserva> reserva;
 
     public Usuario() {
     }

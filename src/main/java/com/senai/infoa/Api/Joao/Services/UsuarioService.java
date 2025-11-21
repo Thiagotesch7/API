@@ -16,6 +16,9 @@ public class UsuarioService {
         usuarioRepository.saveAndFlush(usuario);
     }
 
+    public Usuario LoginUsuario (String email, String senha) {
+        return usuarioRepository.FindByEmailAndSenha(email, senha);
+    }
    
 
 }

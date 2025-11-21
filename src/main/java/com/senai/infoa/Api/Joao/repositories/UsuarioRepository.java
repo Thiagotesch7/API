@@ -7,5 +7,6 @@ import com.senai.infoa.Api.Joao.models.Usuario;
 
 @Repository
 public interface  UsuarioRepository extends JpaRepository<Usuario, Integer>{
-   // Usuario findByEmailAndSenha(String nomeUsuario, String senha);
+   
+   public Usuario FindByEmailAndSenha (String email, String senha);
 }
