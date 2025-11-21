@@ -2,6 +2,7 @@ package com.senai.infoa.Api.Joao.models;
 
 import java.time.LocalDate;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,6 +34,7 @@ public class Usuario {
     private String senha;
 
     @OneToMany(mappedBy="usuario")
+    @JsonIgnore
     private List<Reserva> reserva;
 
     public Usuario() {
@@ -100,3 +102,4 @@ public class Usuario {
 
     
 }
+
