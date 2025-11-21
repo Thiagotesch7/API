@@ -26,9 +26,9 @@ public class Reserva {
     private LocalDate dataFinal;
 
 
-    @ManyToOne
-    @JoinColumn(name="usuario_id")
-    private Usuario usuario;
+    //@ManyToOne
+    //@JoinColumn(name="usuario_id")
+    //private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name="equipamento_id")
@@ -101,3 +101,4 @@ public class Reserva {
 
     
 }
+
