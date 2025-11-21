@@ -1,5 +1,7 @@
 package com.senai.infoa.Api.Joao.Services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,10 @@ public class ReservaService {
         reservaRepository.saveAndFlush(reserva);
     }
     
-   // public List<Reserva> ListarReservasUsuario (Integer id_usuario) {
-       // return reservaRepository.findByUsuarioId(id_usuario);//RESOLVER PARA PUXAR TODOS AS RESERVAR DAQUELE USUARIO
+    public List<Reserva> ListarReservasUsuario (Integer id_usuario) {
+        return reservaRepository.BuscarReservasUsuario(id_usuario);
+    }
+    
     
 
     //public List<Reserva> ListarReservasMaquinas (Integer id_equipamento) {
