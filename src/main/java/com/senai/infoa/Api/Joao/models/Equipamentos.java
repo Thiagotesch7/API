@@ -22,7 +22,7 @@ public class Equipamentos {
     @Column(name="nome_equipamento")
     private String nomeEquipamento;
 
-    @OneToOne(mappedBy="equipamentos", cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="equipamentos")
     private Reserva reserva;
 
     public Equipamentos() {
@@ -63,3 +63,4 @@ public class Equipamentos {
     
 
 }
+
