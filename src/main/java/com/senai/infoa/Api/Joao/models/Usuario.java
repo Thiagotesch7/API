@@ -32,7 +32,7 @@ public class Usuario {
     @Column(name="senha")
     private String senha;
 
-    @OneToOne(mappedBy="usuario" , cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="usuario")
     private Reserva reserva;
 
     public Usuario() {
@@ -99,3 +99,4 @@ public class Usuario {
 
     
 }
+
