@@ -1,6 +1,7 @@
 package com.senai.infoa.Api.Joao.models;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,18 +33,18 @@ public class Usuario {
     private String senha;
 
     @OneToMany(mappedBy="usuario")
-    private Reserva reserva;
+    private List<Reserva> reserva;
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nomeUsuario, String cpf, LocalDate dataNascimento, String senha, Reserva reserva) {
-        this.id = id;
-        this.nomeUsuario = nomeUsuario;
+    public Usuario(String cpf, LocalDate dataNascimento, Integer id, String nomeUsuario, List<Reserva> reserva, String senha) {
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
-        this.senha = senha;
+        this.id = id;
+        this.nomeUsuario = nomeUsuario;
         this.reserva = reserva;
+        this.senha = senha;
     }
 
     public Integer getId() {
@@ -86,14 +87,15 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Reserva getReserva() {
+    public List<Reserva> getReserva() {
         return reserva;
     }
 
-    public void setReserva(Reserva reserva) {
+    public void setReserva(List<Reserva> reserva) {
         this.reserva = reserva;
     }
 
+    
     
 
     

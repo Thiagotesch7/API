@@ -1,5 +1,7 @@
 package com.senai.infoa.Api.Joao.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,12 +24,12 @@ public class Equipamentos {
     private String nomeEquipamento;
 
     @OneToMany(mappedBy="equipamentos")
-    private Reserva reserva;
+    private List<Reserva> reserva;
 
     public Equipamentos() {
     }
 
-    public Equipamentos(Integer id, String nomeEquipamento, Reserva reserva) {
+    public Equipamentos(Integer id, String nomeEquipamento, List<Reserva> reserva) {
         this.id = id;
         this.nomeEquipamento = nomeEquipamento;
         this.reserva = reserva;
@@ -49,16 +51,19 @@ public class Equipamentos {
         this.nomeEquipamento = nomeEquipamento;
     }
 
-    public Reserva getReserva() {
+    public List<Reserva> getReserva() {
         return reserva;
     }
 
-    public void setReserva(Reserva reserva) {
+    public void setReserva(List<Reserva> reserva) {
         this.reserva = reserva;
     }
 
 
     
-    
 
-}
+    
+    }
+
+
+
