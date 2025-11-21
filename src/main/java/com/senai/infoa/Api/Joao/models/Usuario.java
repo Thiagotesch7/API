@@ -1,6 +1,6 @@
 package com.senai.infoa.Api.Joao.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -27,7 +27,7 @@ public class Usuario {
     private String cpf;
 
     @Column(name="data_nascimento")
-    private LocalDateTime dataNascimento;
+    private LocalDate dataNascimento;
 
     @Column(name="senha")
     private String senha;
@@ -38,7 +38,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nomeUsuario, String cpf, LocalDateTime dataNascimento, String senha, Reserva reserva) {
+    public Usuario(Integer id, String nomeUsuario, String cpf, LocalDate dataNascimento, String senha, Reserva reserva) {
         this.id = id;
         this.nomeUsuario = nomeUsuario;
         this.cpf = cpf;
@@ -71,11 +71,11 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public LocalDateTime getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDateTime dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
