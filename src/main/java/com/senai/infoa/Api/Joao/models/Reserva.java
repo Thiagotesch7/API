@@ -39,11 +39,10 @@ public class Reserva {
     }
 
 
-    public Reserva(Integer id, LocalDate dataInicio, LocalDate dataFinal, Usuario usuario,  Equipamentos equipamentos) {
+    public Reserva(Integer id, LocalDate dataInicio, LocalDate dataFinal, Equipamentos equipamentos) {
         this.id = id;
         this.dataInicio = dataInicio;
         this.dataFinal = dataFinal;
-        this.usuario = usuario;
         this. equipamentos = equipamentos;
     }
 
@@ -78,14 +77,6 @@ public class Reserva {
     }
 
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
 
     public Equipamentos getEquipamentos() {
@@ -101,4 +92,5 @@ public class Reserva {
 
     
 }
+
 
