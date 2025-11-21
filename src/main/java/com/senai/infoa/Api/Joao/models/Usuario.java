@@ -33,9 +33,9 @@ public class Usuario {
     @Column(name="senha")
     private String senha;
 
-    @OneToMany(mappedBy="usuario")
-    @JsonIgnore
-    private List<Reserva> reserva;
+    //@OneToMany(mappedBy="usuario")
+    //@JsonIgnore
+    //private List<Reserva> reserva;
 
     public Usuario() {
     }
@@ -102,4 +102,5 @@ public class Usuario {
 
     
 }
+
 
