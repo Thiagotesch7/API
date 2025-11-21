@@ -2,13 +2,12 @@ package com.senai.infoa.Api.Joao.models;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
@@ -32,7 +31,7 @@ public class Usuario {
     @Column(name="senha")
     private String senha;
 
-    @OneToOne(mappedBy="usuario")
+    @OneToMany(mappedBy="usuario")
     private Reserva reserva;
 
     public Usuario() {
@@ -99,4 +98,3 @@ public class Usuario {
 
     
 }
-
