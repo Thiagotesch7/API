@@ -17,7 +17,7 @@ import com.senai.infoa.Api.Joao.models.Reserva;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
-@RequestMapping(name="/Reserva")
+@RequestMapping("/Reserva")
 public class ReservaController {
     @Autowired
     private ReservaService reservaService;
@@ -44,3 +44,4 @@ public class ReservaController {
         return ResponseEntity.ok("Deletado Com Sucesso");
     }
 }
+
