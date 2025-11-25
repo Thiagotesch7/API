@@ -26,9 +26,9 @@ public class UsuarioController {
 
 
         @PostMapping("/Login")
-        public ResponseEntity<String> LoginUsuario (@RequestParam String nomeUsuario, @RequestParam String senha) {
+        public ResponseEntity<Usuario> LoginUsuario (@RequestParam String nomeUsuario, @RequestParam String senha) {
             usuarioService.LoginUsuario(nomeUsuario, senha);
-            return ResponseEntity.ok("Login efetuado!!");
+            return ResponseEntity.ok(Usuario);
         }
 
 
@@ -36,4 +36,5 @@ public class UsuarioController {
 
     
     
+
 
