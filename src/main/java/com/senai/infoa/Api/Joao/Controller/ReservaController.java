@@ -7,14 +7,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.infoa.Api.Joao.Services.ReservaService;
+import com.senai.infoa.Api.Joao.models.Maquina;
 import com.senai.infoa.Api.Joao.models.Reserva;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import com.senai.infoa.Api.Joao.models.Usuario;
 
 @RestController
 @RequestMapping("/Reserva")
@@ -24,6 +25,15 @@ public class ReservaController {
 
     @PostMapping("/Cadastrar")
     public ResponseEntity<String> cadastrarReserva (@RequestBody Reserva reserva) {
+
+        Maquina maquina = new Maquina();
+        maquina.setIdMaquina(reserva.getMaquina().getIdMaquina());
+        reserva.setMaquina(maquina);
+
+        Usuario usuario = new Usuario();
+        usuario.setIdUsuario(reserva.getMaquina().getIdMaquina());
+        reserva.setMaquina(maquina);
+
         reservaService.cadastrarReserva(reserva);
         return ResponseEntity.ok("Reserva Cadastrada");
     }
@@ -44,4 +54,3 @@ public class ReservaController {
         return ResponseEntity.ok("Deletado Com Sucesso");
     }
 }
-
