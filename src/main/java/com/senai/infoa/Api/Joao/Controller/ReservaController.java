@@ -33,7 +33,7 @@ public class ReservaController {
         return reservaService.listarReservasDoUsuario(idUsuario);
     }
 
-    @GetMapping("/ListarReservaDoUsuario")
+    @GetMapping("/ListarReservaDaMaquina")
     public List<Reserva> listarReservaDaMaquina (@RequestParam Integer idMaquina) {
         return reservaService.listarReservasDaMaquina(idMaquina);
     }
@@ -44,4 +44,5 @@ public class ReservaController {
         return ResponseEntity.ok("Deletado Com Sucesso");
     }
 }
+
 
