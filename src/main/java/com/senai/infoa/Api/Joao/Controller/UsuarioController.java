@@ -26,9 +26,8 @@ public class UsuarioController {
 
 
         @PostMapping("/Login")
-        public ResponseEntity<Usuario> LoginUsuario (@RequestParam String nomeUsuario, @RequestParam String senha) {
-            usuarioService.LoginUsuario(nomeUsuario, senha);
-            return ResponseEntity.ok(Usuario);
+        public Usuario LoginUsuario (@RequestParam String nomeUsuario, @RequestParam String senha) {
+                return usuarioService.LoginUsuario(nomeUsuario, senha);
         }
 
 
@@ -36,5 +35,4 @@ public class UsuarioController {
 
     
     
-
 
