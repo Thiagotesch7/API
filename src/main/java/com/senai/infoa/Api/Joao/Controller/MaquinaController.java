@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.senai.infoa.Api.Joao.Services.MaquinaService;
 import com.senai.infoa.Api.Joao.models.Maquina;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-
 @RestController
 @RequestMapping("/Maquina")
 public class MaquinaController {
@@ -29,22 +27,20 @@ public class MaquinaController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/ListarMaquinas")
-    public ResponseEntity<List<Maquina>> listarMaquinas () {
+    @GetMapping("/Listar")
+    public ResponseEntity<List<Maquina>> listarMaquina (@RequestParam Integer id) {
         return ResponseEntity.ok(maquinaService.listarMaquinas());
     }
 
     @PutMapping("/Atualizar")
-    public ResponseEntity<String> atualizarMaquina (@RequestParam Integer idMaquina, @RequestBody Maquina maquina) {
+    public ResponseEntity<String> atualizarMaquina (@RequestParam Integer id, @org.springframework.web.bind.annotation.RequestBody Maquina maquina) {
         maquinaService.atualizarMaquina(id, maquina);
         return ResponseEntity.ok("Atualizado com sucesso");
     }
 
     @DeleteMapping("/Deletar")
     public ResponseEntity<String> deletarMaquina (@RequestParam Integer idMaquina) {
-        maquinaService.deletarMaquina(id);
+        maquinaService.deletarMaquina(idMaquina);
         return ResponseEntity.ok("Deletado com sucesso");
     }
 }
-
-
