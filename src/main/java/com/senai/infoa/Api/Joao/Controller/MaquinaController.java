@@ -24,9 +24,9 @@ public class MaquinaController {
     private MaquinaService maquinaService;
 
     @PostMapping("/Cadastrar")
-    public ResponseEntity<String> cadastrarMaquina (@RequestBody Maquina maquina) {
+    public ResponseEntity<Void> cadastrarMaquina (@org.springframework.web.bind.annotation.RequestBody Maquina maquina) {
         maquinaService.cadastrarMaquina(maquina);
-        return ResponseEntity.ok("Maquina Cadastrada");
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/Listar")
