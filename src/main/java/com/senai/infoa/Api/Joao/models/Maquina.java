@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Maquina {
     @Column(name="nome_maquina")
     private String nomeMaquina;
 
-    @OneToMany(mappedBy="maquina")
+    @OneToMany(mappedBy="maquina",cascade=CascadeType.ALL)
     @JsonIgnore
     private List<Reserva> reservas;
 
