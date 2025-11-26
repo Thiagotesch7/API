@@ -10,9 +10,10 @@ import com.senai.infoa.Api.Joao.models.Reserva;
 
 public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
     
-    @Query(value="SELECT * FROM reserva WHERE id_usuario = :Idusuario",nativeQuery=true)
+    @Query(value="SELECT * FROM reserva WHERE id_usuario = :idUsuario",nativeQuery=true)
     public List<Reserva> listarReservaUsuario (@Param("idUsuario") Integer idUsuario);
 
     @Query(value="SELECT * FROM reserva WHERE id_maquina = :idMaquina",nativeQuery=true)
     public List<Reserva> listarReservaMaquina (@Param("idMaquina") Integer idMaquina);
 }
+
