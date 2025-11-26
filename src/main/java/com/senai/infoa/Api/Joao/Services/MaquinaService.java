@@ -21,14 +21,15 @@ public class MaquinaService {
         return maquinaRepository.findAll();
     }
 
-    public void atualizarMaquina (Integer id, Maquina maquina) {
-        Maquina maquinaAntiga = maquinaRepository.findById(id).orElseThrow(()-> new RuntimeException("Não existe essa maquina"));
+    public void atualizarMaquina (Integer idMaquina, Maquina maquina) {
+        Maquina maquinaAntiga = maquinaRepository.findById(idMaquina).orElseThrow(()-> new RuntimeException("Não existe essa maquina"));
 
         if (maquina.getNomeMaquina() != null) {maquinaAntiga.setNomeMaquina(maquina.getNomeMaquina());}
 
     }
 
-    public void deletarMaquina (Integer id) {
-        maquinaRepository.deleteById(id);
+    public void deletarMaquina (Integer idMaquina) {
+        maquinaRepository.deleteById(idMaquina);
     }
 }
+
