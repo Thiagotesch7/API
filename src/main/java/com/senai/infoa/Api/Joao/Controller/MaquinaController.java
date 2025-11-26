@@ -28,7 +28,7 @@ public class MaquinaController {
     }
 
     @GetMapping("/Listar")
-    public ResponseEntity<List<Maquina>> listarMaquina (@RequestParam Integer id) {
+    public ResponseEntity<List<Maquina>> listarMaquina () {
         return ResponseEntity.ok(maquinaService.listarMaquinas());
     }
 
@@ -44,3 +44,4 @@ public class MaquinaController {
         return ResponseEntity.ok("Deletado com sucesso");
     }
 }
+
