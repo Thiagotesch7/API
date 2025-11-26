@@ -35,15 +35,16 @@ public class MaquinaController {
     }
 
     @PutMapping("/Atualizar")
-    public ResponseEntity<String> atualizarMaquina (@RequestParam Integer id, @RequestBody Maquina maquina) {
+    public ResponseEntity<String> atualizarMaquina (@RequestParam Integer idMaquina, @RequestBody Maquina maquina) {
         maquinaService.atualizarMaquina(id, maquina);
         return ResponseEntity.ok("Atualizado com sucesso");
     }
 
     @DeleteMapping("/Deletar")
-    public ResponseEntity<String> deletarMaquina (@RequestParam Integer id) {
+    public ResponseEntity<String> deletarMaquina (@RequestParam Integer idMaquina) {
         maquinaService.deletarMaquina(id);
         return ResponseEntity.ok("Deletado com sucesso");
     }
 }
+
 
